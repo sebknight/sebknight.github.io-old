@@ -13,12 +13,12 @@ $(document).ready(function(){
     });
 
     $('#about').click(function(){
-        $('.dropdown').not(this).hide();
+        // $('.dropdown').not(this).hide();
         $('.dropdown__about').toggle();
     })
 
     $('#contact').click(function () {
-        $('.dropdown').not(this).hide();
+        // $('.dropdown').not(this).hide();
         $('.dropdown__contact').toggle();
 
 
