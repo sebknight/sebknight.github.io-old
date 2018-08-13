@@ -37,16 +37,6 @@ h1 {
   font-family: "Knewave", cursive;
 }
 
-.portfolio-links > li {
-  background-color: #412f55;
-  color: #ebebeb;
-}
-
-.portfolio-link {
-  color: #ebebeb;
-  background-color: #412f55;
-}
-
 .heading {
   width: 100vw;
 }
