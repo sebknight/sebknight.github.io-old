@@ -1,0 +1,69 @@
+// Mixins
+@mixin select-none{
+    user-select: none;
+}
+
+// Variables
+
+$primary-color: #412f55;
+$secondary-color: #ebebeb;
+
+
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    min-height: 100%;
+    min-width: 100%;
+    color: $primary-color;
+    background-color: $secondary-color;
+}
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+nav {
+    width: 100%;
+    // color: $secondary-color;
+    // background-color:$primary-color; 
+}
+
+ul {
+    list-style: none;
+}
+
+h1 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.heading {
+    width: 100vw;
+}
+
+.button {
+    @include select-none;
+    background-color: $primary-color;
+    color: $secondary-color;
+
+}
+.button:active, .button:focus, .button:hover {
+    color: $primary-color;
+    background-color: $secondary-color;
+}
+
+
+
+#picture {
+	width: 500px;
+	height: auto;
+}
+
+#loader {
+    display: none;
+}
+
+.dropdown {
+    display: none;
+}
