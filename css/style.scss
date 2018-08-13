@@ -3,12 +3,12 @@
     user-select: none;
 }
 //Fonts
-@import url('https://fonts.googleapis.com/css?family=Assistant|Montserrat+Alternates:700i');
+@import url('https://fonts.googleapis.com/css?family=Assistant|Knewave');
 // Variables
 
 $primary-color: #412f55;
 $secondary-color: #ebebeb;
-$header-font: 'Monsterrat Alternates', sans-serif;
+$header-font: 'Knewave', cursive;
 $body-font: 'Assistant', sans-serif;
 
 
@@ -21,12 +21,18 @@ body {
     color: $primary-color;
     background-color: $secondary-color;
     font-family: $body-font;
+    font-size: 24px;
 }
 .container {
     width: 100vw;
     height: 100vh;
 }
 
+hr {
+    height: 2px;
+    color: $primary-color;
+    background-color: $primary-color;
+}
 nav {
     width: 100%;
     // color: $secondary-color;
@@ -43,6 +49,14 @@ h1 {
     font-family: $header-font;
 }
 
+.portfolio-links > li {
+    background-color: $primary-color;
+    color: $secondary-color;
+}
+.portfolio-link {
+    color: $secondary-color;
+    background-color: $primary-color;
+}
 .heading {
     width: 100vw;
 }
