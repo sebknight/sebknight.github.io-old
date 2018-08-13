@@ -27,7 +27,7 @@ nav {
   width: 100%;
 }
 
-ul {
+.portfolio > ul {
   list-style: none;
 }
 
@@ -60,11 +60,11 @@ h1 {
   height: auto;
 }
 
-#loader {
+.dropdown {
   display: none;
 }
 
-.dropdown {
-  display: none;
+.dog {
+  padding-bottom: 2rem;
 }
 /*# sourceMappingURL=style.css.map */

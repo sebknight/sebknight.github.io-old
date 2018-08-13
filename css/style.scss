@@ -39,7 +39,7 @@ nav {
     // background-color:$primary-color; 
 }
 
-ul {
+.portfolio > ul {
     list-style: none;
 }
 
@@ -71,10 +71,10 @@ h1 {
 	height: auto;
 }
 
-#loader {
+.dropdown {
     display: none;
 }
 
-.dropdown {
-    display: none;
+.dog {
+    padding-bottom: 2rem;
 }
