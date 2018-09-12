@@ -1,0 +1,285 @@
+//Variables
+$primary-color: #8b0126; //red
+$secondary-color: #512e25; //brown
+$tertiary-color: #f76244; //orange
+$field-color: #F1F1C2; //cream
+$background-color: #eebd74; //gold
+$primary-focus: rgba(#6e824b, 1);
+$secondary-focus: rgba(#512e25, 1);
+
+
+//Mixins and imports
+@import url('https://fonts.googleapis.com/css?family=Shrikhand|Source+Serif+Pro:400,600,700|Questrial');
+
+@mixin h1 {
+  font-family: 'Shrikhand', cursive;
+  color: $primary-color;
+  font-size: 3rem;
+  font-kerning: auto;
+}
+
+@mixin title-small {
+  @include h1;
+  font-size: 1.5rem;
+}
+
+@mixin h2 {
+  color: $secondary-color;
+  font-family: 'Source Serif Pro', serif;
+  font-weight: 600;
+  margin: 1rem 0rem 1rem 0rem;
+  // font-size: 2.5rem;
+}
+
+@mixin h3 {
+  color: $secondary-color;
+  font-size: 3rem;
+  margin: 1rem 0rem 1rem 0rem;
+}
+
+@mixin body-text {
+  color: $secondary-color;
+  font-family: 'Questrial', sans-serif;
+}
+
+@mixin focus-shadow {
+  border: 3px solid $tertiary-color;
+   -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+           border-radius: 3px;
+   -webkit-box-shadow: 0px 0px 10px $tertiary-color;
+      -moz-box-shadow: 0px 0px 10px $tertiary-color;
+           box-shadow: 0px 0px 10px $tertiary-color;
+}
+
+@mixin background-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+@mixin zero-margin{
+  margin: 0 auto;
+  padding: 0;
+}
+
+h1 {
+  @include h1;
+}
+h2 {
+  @include h2;
+}
+h3{
+  @include h3;
+}
+h4 {
+  @include title-small;
+}
+p {
+  @include body-text;
+}
+
+// Media queries
+
+
+
+a:hover, h4:hover {
+    color: $field-color;
+    text-decoration: none;
+    text-shadow: -1px 0 $secondary-color, 0 1px $secondary-color, 1px 0 $secondary-color, 0 -1px $secondary-color;
+  }
+
+input {
+  background-color: $field-color;
+  border: 1px solid $tertiary-color;
+
+  :focus, :active {
+    @include focus-shadow;
+  }
+}
+
+.container {
+  @include zero-margin;
+  // height: 100%;
+  // width: 100%;
+  background: $background-color;
+  color: $secondary-color;
+  font-family: 'Questrial', sans-serif;
+  // justify-content: center;
+}
+
+.col-4 {
+  @include zero-margin;
+  padding: 5%;
+  height: 100%;
+}
+.col-right {
+  @include zero-margin;
+}
+
+#col-right__child {
+  height: 100%;
+  width: 100%;
+}
+
+.col-right__intro  {
+  @include background-image;
+  background-image: url("../images/desert-bike.png");
+}
+
+.col-right__details {
+  @include background-image;
+  background-image: url("../images/plan-retro.png");
+}
+
+.col-right__passengers {
+  @include background-image;
+  background-image: url("../images/shoulders.png");
+}
+
+.col-right__map {
+  @include background-image;
+  background-image: url("../images/explore.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+// .col-right__final {
+//   background-image: url("../images/expls.png");
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   overflow: hidden;
+// }
+// .map{
+//   display: none;
+// }
+
+.btn {
+  background-color: $primary-color;
+  border-color: $background-color;
+  border: 1px solid $secondary-color;
+  color: $background-color;
+  margin: 0.5em 0em 0.5em 0em;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn.dropdown-toggle, .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:focus, .btn-primary:hover, .btn-primary:active, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary:focus {
+
+  // btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus
+  color: $secondary-color;
+  background-color: $tertiary-color;
+  border: 1px solid $secondary-color;
+    // background-color: $primary-color;
+    // border-color: $background-color;
+    // box-shadow: 0 0 3px $secondary-focus;
+    // color: $background-color;
+}
+
+// .input-group-addon{
+//   margin: 1rem 1rem 0rem 1rem;
+// }
+
+.details {
+  display: none;
+}
+
+.form {
+  display: none;
+}
+
+.form-control-lg {
+  margin: 1rem 1rem 1rem 0rem;
+  background-color: $field-color;
+  color: $secondary-color;
+}
+
+.form-control-lg:focus {
+    border-color: $primary-color;
+    box-shadow: 0 0 3px $primary-focus;
+    background-color: $primary-focus;
+//     color: $secondary-color;
+}
+
+.form__passengers {
+  margin-right: 2rem;
+}
+
+.details-list {
+  list-style: none;
+}
+
+.vehicles {
+  display: none;
+}
+
+.vehicle {
+  opacity: 0.8;
+  padding: 1rem;
+  margin: 1rem;
+  > img {
+    width: 300px;
+    height: 200px;
+  }
+}
+
+.is-selected {
+  opacity: 1;
+  border: solid 5px $secondary-color;
+  border-radius: 5px;
+   -webkit-box-shadow: 0px 0px 20px $tertiary-color;
+      -moz-box-shadow: 0px 0px 20px $tertiary-color;
+           box-shadow: 0px 0px 20px $tertiary-color;
+}
+
+.vehicle-options {
+  margin: 0.5rem;
+  border-radius: 5px;
+  display: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.motorbike, .small-car, .big-car, .camper {
+  display: none;
+  background: $background-color;
+  border: 3px solid $background-color;
+  border-radius: 10px;
+  > ul {
+    list-style: none;
+  }
+}
+
+//Mapbox styling
+.mapboxgl-canvas {
+overflow: hidden;
+width: 100%;
+}
+
+.directions-icon {
+  background-color: $tertiary-color;
+}
+
+.directions-icon-arrive {
+  background-color: $primary-color;
+}
+
+.mapbox-directions-inputs, .mapboxgl-ctrl-geocoder {
+  font-family: 'Questrial', sans-serif;
+}
+
+.mapbox-directions-origin > .mapbox-form-label {
+  background-color: $secondary-color;
+}
+.mapbox-directions-destination > .mapbox-form-label {
+  background-color: $primary-color;
+}
+.mapbox-directions-profile {
+  display: none;
+}
+
+//Mapbox styling ENDS
