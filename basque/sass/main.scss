@@ -1,0 +1,231 @@
+// Mixins
+// media queries
+@mixin bp($point) {
+  @if $point == phone {
+    @media (max-width: 499px) { @content; }
+  }
+  @else if $point == tablet-portrait {
+    @media (min-width: 600px) { @content; }
+  }
+  @else if $point == tablet-landscape {
+    @media (min-width: 900px) { @content; }
+  }
+  @else if $point == desktop {
+    @media (min-width: 1200px) { @content; }
+  }
+}
+
+// prevent highlighting/selecting of text
+@mixin user-select($value) {
+  -webkit-touch-callout: $value; /* iOS Safari */
+    -webkit-user-select: $value; /* Safari */
+     -khtml-user-select: $value; /* Konqueror HTML */
+       -moz-user-select: $value; /* Firefox */
+        -ms-user-select: $value; /* Internet Explorer/Edge */
+            user-select: $value; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+//Borders and box shadow styling
+@mixin box-shadow {
+  box-shadow: $highlight 0.4em 0.4em;
+}
+
+@mixin border {
+  border-radius: 5px;
+}
+
+@mixin zero-margin {
+  margin: 0;
+  padding: 0;
+}
+
+//Button styling
+@mixin button {
+  @include border;
+  background-color: $highlight;
+  border: $highlight solid 2px;
+  font-family: $body-font;
+  padding: 0.5em;
+  margin: 1em;
+  align-items: center;
+}
+
+//Colors
+$primary-color: #FFFDED; //Cream
+$secondary-color: #F97A32; //Orange
+$background-color: #EAA514; //Mustard
+$text-color: #363534; //Black
+$highlight: #53C4AD; //Blue
+
+//Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
+$body-font: 'Didact Gothic', sans-serif;
+//Variables and mixins END
+
+//body settings
+.page {
+  @include user-select(none);
+  @include zero-margin;
+  box-sizing: border-box;
+  font-family: $body-font;
+  color: $text-color;
+}
+
+//Main container
+.container {
+  background-color: $background-color;
+  background-image: url("https://transparenttextures.com/patterns/pineapple-cut.png");
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 100vh;
+  @include bp(tablet-landscape){
+    font-size: 120%;
+  }
+  @include bp(desktop){
+    font-size: 150%;
+  }
+}
+
+//Navigation
+.navigation {
+  @include zero-margin;
+  background: $secondary-color;
+  font-family: $body-font;
+  text-align: center;
+  .button {
+    @include button;
+  }
+} 
+
+.navigation__item {
+  @include border;
+  margin-right: 1em;
+  margin-left: 1em;
+  padding: 0.5em;
+  list-style: none;
+  display: inline-block;
+  background: $highlight;
+  //Responsively show text with buttons 
+  .navigation__item__big {
+    display: none;
+    @include bp(tablet-portrait) {
+      display: inline;
+    }
+  }      
+} //Navigation item ENDS
+//Navigation styling ENDS
+
+//Menu styling
+.menu {
+  background: $primary-color;
+  border: solid 2px $secondary-color;
+  border-top: 0px;
+  border-bottom: 0px;
+  //using calc() to force correct width
+  width: calc(85%);
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+    @include bp(tablet-landscape){
+      flex-flow: row wrap;
+    }
+
+  //Menu heading
+  .menu__heading {
+    width: 100%;
+    text-align: center;
+    //space out text on tablet-portrait
+    @include bp(tablet-portrait){
+      .menu__heading--title{
+        margin-bottom: 0.25em;
+      }
+      .menu__heading--subtitle{
+        margin-bottom: 0.5em;
+      }
+    }
+    //tighten text on tablet-landscape up
+    @include bp(tablet-landscape){
+      @include zero-margin;    
+    }
+  } //Menu heading ENDS
+
+  //Menu item
+  .menu-item {
+    @include box-shadow;
+    @include border;
+    width: 80%;
+    text-align: right;
+    align-self: center;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin: 0.5em;
+    background: $secondary-color;
+      @include bp(tablet-portrait){
+        flex-flow: row wrap;
+        flex-basis: 40%;
+        }
+      @include bp(tablet-landscape){
+        flex-basis: 40%;
+      }
+      @include bp(desktop){
+        flex-basis: 25%;
+      }
+    //Menu item buttons
+    .menu-item__button-area {
+      @include border;
+      position: relative;
+      margin-bottom: 1em;
+      display: inline-flex;
+      flex: 2;
+      align-items: center;
+      text-align: center;
+      background-color: $primary-color;
+      .button {
+        @include button;
+      }
+    } //menu item button area ENDS
+
+    .dropdown__menu-item {
+      @include bp(tablet-portrait){
+        align-items: stretch;
+        flex-flow: row wrap;
+        flex: 1;
+      }
+    } //dropdown menu item ends
+  } //menu item ENDS
+  .item-image {
+    @include bp(phone){
+      display: none;
+    }
+    @include bp(tablet-portrait){
+      position: relative;
+      width: 100%;
+      height: auto;
+      background-size: cover;
+    }
+  } //item image ENDS
+} //Menu styling ENDS
+
+
+// JQuery states
+.is-active {
+  color: $text-color;
+  background: $primary-color;
+}
+
+.dropdown {
+  @include zero-margin;
+  display: none;
+  align-items: center;
+  align-content: center;
+  background: $secondary-color;
+}
+//End of page
